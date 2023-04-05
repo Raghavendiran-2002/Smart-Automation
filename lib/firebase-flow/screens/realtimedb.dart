@@ -1,27 +1,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import "package:flutter/material.dart";
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:smart_devices/deviceinfo-flow/reusable.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+import '../../deviceinfo-flow/reusable.dart';
+
+class RealTimeDB extends StatefulWidget {
+  const RealTimeDB({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<RealTimeDB> createState() => _RealTimeDBState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _RealTimeDBState extends State<RealTimeDB> {
+  var db = FirebaseFirestore.instance;
   List<DeviceInfo> devicesInfo = [
     DeviceInfo("0x01", true, "fan", "ac"),
-    DeviceInfo("0x01", true, "fan", "ac"),
-    DeviceInfo("0x01", true, "fan", "ac")
+    DeviceInfo("0x01", true, "tv", "tv"),
   ];
-
-  final firestoreInstance = FirebaseFirestore.instance;
   var orientation, size, height, width;
+
+  void readData() {
+    final docRef = db.collection("home").doc();
+    docRef.get().then(
+      (DocumentSnapshot doc) {
+        // final data = doc.data() as Map<String, dynamic>;
+      },
+      onError: (e) => print("Error getting document: $e"),
+    );
+  }
 
   @override
   void initState() {
@@ -34,6 +41,7 @@ class _HomePageState extends State<HomePage> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -59,8 +67,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: IconButton(
                     onPressed: () async {
-                      FirebaseAuth.instance.signOut();
-                      GoogleSignIn().signOut();
+                      // FirebaseAuth.instance.signOut();
+                      // GoogleSignIn().signOut();
                       Navigator.pushNamedAndRemoveUntil(
                           context, "/", (Route<dynamic> route) => false);
                     },

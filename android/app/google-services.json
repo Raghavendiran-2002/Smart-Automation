@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702160745730",
+    "project_id": "smart-devices-9ea25",
+    "storage_bucket": "smart-devices-9ea25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702160745730:android:a466c5d9aa3d6b9390be1b",
+        "android_client_info": {
+          "package_name": "com.raghav.home.smart_devices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702160745730-riq5q5lctdu25cqgn3bjcd2s47f29gft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdf16lekrQbzazPcVwjGBE00BEVlV1pGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702160745730-riq5q5lctdu25cqgn3bjcd2s47f29gft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
