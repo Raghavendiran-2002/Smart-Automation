@@ -1,7 +1,9 @@
 // import 'mqtt-flow/screens/nwarehousescreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_devices/login-flow/screens/loginpage.dart';
 
+import 'ble-flow/screens/blepage.dart';
 import 'firebase-flow/screens/realtimedb.dart';
 import 'firebase_options.dart';
 import 'home-flow/screens/homepage.dart';
@@ -20,10 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Smart Devices',
-      initialRoute: "realdb",
+      initialRoute: "/",
       debugShowCheckedModeBanner: false,
       routes: {
         "/": (context) => HomePage(),
+        "login": (context) => LoginPage(),
+        "ble": (context) => BlePage(),
         "realdb": (context) => RealTimeDB(),
       },
     );
